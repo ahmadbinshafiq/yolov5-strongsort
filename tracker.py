@@ -97,7 +97,8 @@ def detect(model,
 
     pred = model(im, augment=False, visualize=False)
     pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
-    annotator = Annotator(image, line_width=line_thickness, example=str(names))
+    if draw_detections:
+        annotator = Annotator(image, line_width=line_thickness, example=str(names))
     s = ""
     for i, det in enumerate(pred):
         s += '%gx%g ' % im.shape[2:]

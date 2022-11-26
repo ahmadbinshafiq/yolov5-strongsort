@@ -13,7 +13,7 @@ def run():
         if not ret:
             break
 
-        outputs = detect(model, names, frame, tracker_list, outputs, device=device, draw_detections=True)
+        outputs = detect(model, names, frame, tracker_list, outputs, device=device, draw_detections=False)
         for output in outputs:
             print(f"Tracks: {output}")
 
