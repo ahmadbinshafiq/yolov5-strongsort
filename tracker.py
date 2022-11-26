@@ -68,7 +68,7 @@ def load_tracker(nr_sources=1,
 
 
 @torch.no_grad()
-def run(model,
+def detect(model,
         names,
         image,
         tracker_list,

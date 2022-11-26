@@ -1,7 +1,7 @@
 import os
 import cv2
 
-from tracker import load_detector, load_tracker, run
+from tracker import load_detector, load_tracker, detect
 
 
 def run():
@@ -13,9 +13,9 @@ def run():
         if not ret:
             break
 
-        outputs = run(model, names, frame, tracker_list, outputs, device=device, draw_detections=True)
+        outputs = detect(model, names, frame, tracker_list, outputs, device=device, draw_detections=True)
         for output in outputs:
-            print(f"output: {output}")
+            print(f"Tracks: {output}")
 
         cv2.imshow('Frame', frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
